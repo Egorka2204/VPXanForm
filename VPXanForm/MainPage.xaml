@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VPXanForm.MainPage"
+             xmlns:mm="clr-namespace:MediaManager.Forms;assembly=MediaManager.Forms"
+             Title="Видеоплеер">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+        Order="Primary"
+        Text="AddVideoFile"
+        Clicked="ButtonAddVideo_OnClicked"
+        IconImageSource="Resorsec/drawable/Add.png">
+        </ToolbarItem>
+        
+        <ToolbarItem
+            Order="Primary"
+            Text="AddVideoUrl"
+            Clicked="ButtonAddVideoUrl_OnClicked"
+            IconImageSource="Resorsec/drawable/AddUrl.png">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Padding="1">
+
+        <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer
+                Tapped="OnTapGestureRecognizerTapped" />
+        </StackLayout.GestureRecognizers>
+
+        <mm:VideoView x:Name="mediaElement"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" AutoPlay="False"/>
+
+        <Grid x:Name="gridPlayMenu">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1" >
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="5*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                    x:Name="LabelPositionFirst"
+                    Grid.Column="0"
+                    HorizontalOptions="FillAndExpand"
+                    Text="     "
+                    TextColor="HotPink" />
+
+                    <Label
+                    x:Name="LabelPositionSecond"
+                    Grid.Column="2"
+                    HorizontalOptions="FillAndExpand"
+                    Text="     "
+                    TextColor="HotPink" />
+                </Grid>
+
+                <Slider
+                x:Name="SliderPlayDisplay"
+                Grid.Row="1"
+                Grid.Column="0"
+                HorizontalOptions="FillAndExpand"
+                Minimum="0"
+                MinimumTrackColor="HotPink"
+                ThumbColor="HotPink"
+                Value="0" />
+
+
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+
+
+                <Button
+                x:Name="RewindButton"
+                Grid.Row="1"
+                Grid.Column="0"
+                Clicked="RewindButton_Clicked"
+                ImageSource="Left.jpg"
+                TextColor="White"
+                 HorizontalOptions="Center"   />
+                
+                <Button
+                x:Name="PlayPauseButton"
+                Grid.Row="1"
+                Grid.Column="1"
+                ImageSource="Play.jpg"
+                Clicked="PlayPauseButton_Clicked"
+                TextColor="White"
+                HorizontalOptions="Center" />
+                
+                <Button
+                x:Name="ForwardButton"
+                Grid.Row="1"
+                Grid.Column="2"
+                Clicked="ForwardButton_Clicked"
+                ImageSource="Right.jpg"
+                TextColor="White"
+                HorizontalOptions="Center"/>
+            </Grid>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
